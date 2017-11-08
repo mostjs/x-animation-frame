@@ -15,10 +15,10 @@ export type AnimationFrames = {
   cancelAnimationFrame: AnimationFrameRequest => void
 }
 
-export const nextAnimationFrame = (afp: AnimationFrames): Stream<number> =>
+export const nextAnimationFrame = (afp: AnimationFrames): Stream<DOMHighResTimeStamp> =>
   new AnimationFrame(afp)
 
-export const animationFrames = (afp: AnimationFrames): Stream<number> =>
+export const animationFrames = (afp: AnimationFrames): Stream<DOMHighResTimeStamp> =>
   continueWith(() => animationFrames(afp), nextAnimationFrame(afp))
 
 class AnimationFrame {
@@ -28,7 +28,7 @@ class AnimationFrame {
     this.afp = afp
   }
 
-  run (sink: Sink<number>, scheduler: Scheduler): Disposable {
+  run (sink: Sink<DOMHighResTimeStamp>, scheduler: Scheduler): Disposable {
     const propagate = timestamp => eventThenEnd(currentTime(scheduler), timestamp, sink)
     const request = this.afp.requestAnimationFrame(propagate)
     return disposeWith(this.afp.cancelAnimationFrame, request)
