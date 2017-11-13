@@ -1,14 +1,16 @@
 [![Build Status](https://travis-ci.org/briancavalier/most-animation-frame.svg?branch=master)](https://travis-ci.org/briancavalier/most-animation-frame)
 
-# most-animation-frame
+**EXPERIMENTAL** This is an experimental package.
+
+# @most/animation-frame
 
 Create a stream of animation frames.
 
 ## Get it
 
-`npm i most-animation-frame --save`
+`npm i @most/animation-frame --save`
 
-`yarn add most-animation-frame`
+`yarn add @most/animation-frame`
 
 ## Types
 
@@ -38,7 +40,7 @@ Create a stream containing only the _next_ animation frame.
 Create an infinite stream containing all future animation frames.  This can be used to efficiently update a UI on each animation frame.  Use [`take`](http://mostcore.readthedocs.io/en/latest/api.html#take), [`until`](http://mostcore.readthedocs.io/en/latest/api.html#until), etc. to make the stream finite if you need.
 
 ```js
-import { animationFrames } from 'most-animation-frame'
+import { animationFrames } from '@most/animation-frame'
 import { tap, sample, runEffects } from '@most/core'
 import { newDefaultScheduler } from '@most/scheduler'
 
