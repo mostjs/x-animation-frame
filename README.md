@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/briancavalier/most-animation-frame.svg?branch=master)](https://travis-ci.org/briancavalier/most-animation-frame)
+[![Build Status](https://travis-ci.org/mostjs/x-animation-frame.svg?branch=master)](https://travis-ci.org/mostjs/x-animation-frame)
 
 **EXPERIMENTAL** This is an experimental package.
 
