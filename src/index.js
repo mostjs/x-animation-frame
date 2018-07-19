@@ -31,7 +31,7 @@ class AnimationFrame {
   run (sink: Sink<DOMHighResTimeStamp>, scheduler: Scheduler): Disposable {
     const propagate = timestamp => eventThenEnd(currentTime(scheduler), timestamp, sink)
     const request = this.afp.requestAnimationFrame(propagate)
-    return disposeWith(this.afp.cancelAnimationFrame, request)
+    return disposeWith(request => this.afp.cancelAnimationFrame(request), request)
   }
 }
 
